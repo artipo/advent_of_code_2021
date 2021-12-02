@@ -6,10 +6,12 @@
     <WarnOn>3390;$(WarnOn)</WarnOn>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include=".\inputs\*" >
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Compile Include="Helpers.fs" />
     <Compile Include="Solutions\*.fs" />
     <Compile Include="Program.fs" />
-    <None Include="..\inputs\*" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

@@ -33,4 +33,3 @@ module Seq =
         xss
         |> toTriplets
         |> Seq.map (fun (a, b, c) -> mapper a b c)
-
