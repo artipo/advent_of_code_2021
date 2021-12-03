@@ -4,6 +4,11 @@ NUGET
   remote: https://api.nuget.org/v3/index.json
     coverlet.collector (3.0.2)
     FSharp.Core (6.0.1) - content: none
+    FsUnit.xUnit (4.1)
+      FSharp.Core (>= 5.0.2)
+      NETStandard.Library (>= 2.0.3)
+      NHamcrest (>= 2.0.1 < 2.1)
+      xunit (>= 2.4.1 < 2.5)
     Microsoft.CodeCoverage (17.0) - restriction: || (== net5.0) (&& (== netstandard2.0) (>= net45)) (&& (== netstandard2.0) (>= netcoreapp1.0)) (&& (== netstandard2.1) (>= net45)) (&& (== netstandard2.1) (>= netcoreapp1.0))
     Microsoft.NET.Test.Sdk (16.9.4)
       Microsoft.CodeCoverage (>= 16.9.4) - restriction: || (== net5.0) (&& (== netstandard2.0) (>= net45)) (&& (== netstandard2.0) (>= netcoreapp1.0)) (&& (== netstandard2.1) (>= net45)) (&& (== netstandard2.1) (>= netcoreapp1.0))
@@ -18,6 +23,8 @@ NUGET
     NETStandard.Library (2.0.3)
       Microsoft.NETCore.Platforms (>= 1.1)
     Newtonsoft.Json (13.0.1) - restriction: || (== net5.0) (&& (== netstandard2.0) (>= netcoreapp1.0)) (&& (== netstandard2.1) (>= netcoreapp1.0))
+    NHamcrest (2.0.1)
+      NETStandard.Library (>= 1.6.1)
     NuGet.Frameworks (6.0) - restriction: || (== net5.0) (&& (== netstandard2.0) (>= netcoreapp1.0)) (&& (== netstandard2.0) (>= netcoreapp2.1)) (&& (== netstandard2.1) (>= netcoreapp1.0)) (&& (== netstandard2.1) (>= netcoreapp2.1))
     System.Collections.Immutable (6.0) - restriction: || (== net5.0) (&& (== netstandard2.0) (>= netcoreapp1.0)) (&& (== netstandard2.0) (>= netcoreapp2.1)) (&& (== netstandard2.1) (>= netcoreapp1.0)) (&& (== netstandard2.1) (>= netcoreapp2.1))
       System.Memory (>= 4.5.4)

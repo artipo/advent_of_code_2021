@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{C7BA9E
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "app", "app\app.fsproj", "{ED8809AB-6D3A-4D15-AFBD-9F9DB90EC32D}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "tests", "tests\tests.fsproj", "{DF1EEBBA-B39D-4A3F-A4AF-73FBF9E0892E}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "app.tests", "app.tests\app.tests.fsproj", "{DF1EEBBA-B39D-4A3F-A4AF-73FBF9E0892E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

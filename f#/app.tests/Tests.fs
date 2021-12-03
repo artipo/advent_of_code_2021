@@ -1,5 +1,6 @@
 module Tests
 
+open FsUnit.Xunit
 open Xunit
 
 module Day01 =
@@ -20,12 +21,10 @@ module Day01 =
               260
               263 ]
 
-        let result =
-            measurements
-            |> mapMeasurementsToChanges
-            |> countChanges MeasurementChange.Larger
-
-        Assert.Equal(7, result)
+        measurements
+        |> mapMeasurementsToChanges
+        |> countChanges MeasurementChange.Larger
+        |> should equal 7
 
     [<Fact>]
     let ``day 01, puzzle 2`` () =
@@ -41,13 +40,11 @@ module Day01 =
               260
               263 ]
 
-        let result =
-            measurements
-            |> removeNoiseFromMeasurements
-            |> mapMeasurementsToChanges
-            |> countChanges MeasurementChange.Larger
-
-        Assert.Equal(5, result)
+        measurements
+        |> removeNoiseFromMeasurements
+        |> mapMeasurementsToChanges
+        |> countChanges MeasurementChange.Larger
+        |> should equal 5
 
 module Day02 =
 
@@ -63,13 +60,11 @@ module Day02 =
               "down 8"
               "forward 2" ]
 
-        let result =
-            commands
-            |> parseCommands
-            |> Seq.fold Puzzle_1.move (0, 0)
-            |> Puzzle_1.overallDistance
-
-        Assert.Equal(150, result)
+        commands
+        |> parseCommands
+        |> Seq.fold Puzzle_1.move (0, 0)
+        |> Puzzle_1.overallDistance
+        |> should equal 150
 
     [<Fact>]
     let ``day 02, puzzle 2`` () =
@@ -81,10 +76,8 @@ module Day02 =
               "down 8"
               "forward 2" ]
 
-        let result =
-            commands
-            |> parseCommands
-            |> Seq.fold Puzzle_2.move (0, 0, 0)
-            |> Puzzle_2.overallDistance
-
-        Assert.Equal(900, result)
+        commands
+        |> parseCommands
+        |> Seq.fold Puzzle_2.move (0, 0, 0)
+        |> Puzzle_2.overallDistance
+        |> should equal 900
