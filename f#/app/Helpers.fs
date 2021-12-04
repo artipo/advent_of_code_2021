@@ -1,6 +1,7 @@
 ﻿[<AutoOpen>]
 module App.Helpers
 
+open System
 open System.IO
 
 module File =
@@ -33,3 +34,10 @@ module Seq =
         xss
         |> toTriplets
         |> Seq.map (fun (a, b, c) -> mapper a b c)
+
+module String =
+    let join (sep : string) (seq : string list) =
+        String.Join(sep, seq)
+
+module Int =
+    let parseBinary b = Convert.ToInt32(b, 2)

@@ -81,3 +81,51 @@ module Day02 =
         |> Seq.fold Puzzle_2.move (0, 0, 0)
         |> Puzzle_2.overallDistance
         |> should equal 900
+
+module Day03 =
+
+    open App.Solutions.Day03
+
+    [<Fact>]
+    let ``day 03, puzzle 1`` () =
+        let words =
+            [ "00100"
+              "11110"
+              "10110"
+              "10111"
+              "10101"
+              "01111"
+              "00111"
+              "11100"
+              "10000"
+              "11001"
+              "00010"
+              "01010" ]
+        
+        words
+        |> List.map parseWord
+        |> Puzzle_1.extractRate
+        |> Puzzle_1.rateToPowerConsumption
+        |> should equal 198
+    
+    [<Fact>]
+    let ``day 03, puzzle 2`` () =
+        let words =
+            [ "00100"
+              "11110"
+              "10110"
+              "10111"
+              "10101"
+              "01111"
+              "00111"
+              "11100"
+              "10000"
+              "11001"
+              "00010"
+              "01010" ]
+            
+        words
+        |> List.map parseWord
+        |> Puzzle_2.extractRates
+        |> Puzzle_2.ratesToLifeSupportRating
+        |> should equal 230
