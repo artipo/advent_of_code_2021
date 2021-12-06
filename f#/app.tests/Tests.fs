@@ -241,3 +241,78 @@ module Day04 =
         |> List.last
         ||> calculateScore
         |> should equal 1924
+
+module Day05 =
+    
+    open App.Solutions.Day05
+    
+    [<Fact>]
+    let ``day 05, puzzle 1`` () =
+        let vents =
+            [ "0,9 -> 5,9"
+              "8,0 -> 0,8"
+              "9,4 -> 3,4"
+              "2,2 -> 2,1"
+              "7,0 -> 7,4"
+              "6,4 -> 2,0"
+              "0,9 -> 2,9"
+              "3,4 -> 1,4"
+              "0,0 -> 8,8"
+              "5,5 -> 8,2" ]
+        
+        vents
+        |> List.map parseVentLine
+        |> List.filter (not << isDiagonalVentLine)
+        |> List.collect unfoldVentLine
+        |> List.countBy id
+        |> List.map snd
+        |> List.filter (fun n -> n >= 2)
+        |> List.length
+        |> should equal 5
+    
+    [<Fact>]
+    let ``day 05, puzzle 2`` () =
+        let vents =
+            [ "0,9 -> 5,9"
+              "8,0 -> 0,8"
+              "9,4 -> 3,4"
+              "2,2 -> 2,1"
+              "7,0 -> 7,4"
+              "6,4 -> 2,0"
+              "0,9 -> 2,9"
+              "3,4 -> 1,4"
+              "0,0 -> 8,8"
+              "5,5 -> 8,2" ]
+        
+        vents
+        |> List.map parseVentLine
+        |> List.collect unfoldVentLine
+        |> List.countBy id
+        |> List.map snd
+        |> List.filter (fun n -> n >= 2)
+        |> List.length
+        |> should equal 12
+
+module Day06 =
+    
+    open App.Solutions.Day06
+    
+    [<Fact>]
+    let ``day 06, puzzle 1`` () =
+        let fishes =
+            [| 3; 4; 3; 1; 2 |]
+        
+        fishes
+        |> Array.Parallel.map (simulateFish 80)
+        |> Array.sum
+        |> should equal 5934L
+    
+    [<Fact>]
+    let ``day 06, puzzle 2`` () =
+        let fishes =
+            [| 3; 4; 3; 1; 2 |]
+        
+        fishes
+        |> Array.Parallel.map (simulateFish 256)
+        |> Array.sum
+        |> should equal 26984457539L

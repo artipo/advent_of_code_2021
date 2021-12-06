@@ -80,6 +80,12 @@ let solve day =
     | Some Day_4 ->
         Day04.solve_puzzle_1 ()
         Day04.solve_puzzle_2 ()
+    | Some Day_5 ->
+        Day05.solve_puzzle_1 ()
+        Day05.solve_puzzle_2 ()
+    | Some Day_6 ->
+        Day06.solve_puzzle_1 ()
+        Day06.solve_puzzle_2 ()
         
     | Some _ -> raise (NotImplementedException("NOT IMPLEMENTED -> doing day by day!"))
 
