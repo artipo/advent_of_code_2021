@@ -303,7 +303,7 @@ module Day06 =
             [| 3; 4; 3; 1; 2 |]
         
         fishes
-        |> Array.Parallel.map (simulateFish 80)
+        |> Array.map (simulateFish 80)
         |> Array.sum
         |> should equal 5934L
     
@@ -313,6 +313,6 @@ module Day06 =
             [| 3; 4; 3; 1; 2 |]
         
         fishes
-        |> Array.Parallel.map (simulateFish 256)
+        |> Array.map (simulateFish 256)
         |> Array.sum
         |> should equal 26984457539L

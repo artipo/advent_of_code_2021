@@ -1,6 +1,6 @@
 ﻿module App.Solutions.Day05
 
-open App.Helpers
+open App
 open System
 
 // domain

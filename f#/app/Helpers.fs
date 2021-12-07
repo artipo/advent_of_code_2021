@@ -2,10 +2,20 @@
 module App.Helpers
 
 open System
+open System.Collections.Generic
 open System.IO
+
+module Dictionary =
+    let tryFind key (dict : Dictionary<_, _>) =
+        match dict.TryGetValue(key) with
+        | false, _ -> None
+        | true, v -> Some v
 
 module File =
     let readAllLines filePath = File.ReadAllLines(filePath)
+
+module Int =
+    let parseBinary b = Convert.ToInt32(b, 2)
 
 module Seq =
     let toCouples xss =
@@ -38,6 +48,3 @@ module Seq =
 module String =
     let join (sep : string) (seq : string list) =
         String.Join(sep, seq)
-
-module Int =
-    let parseBinary b = Convert.ToInt32(b, 2)
