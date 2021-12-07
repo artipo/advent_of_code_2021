@@ -316,3 +316,27 @@ module Day06 =
         |> Array.map (simulateFish 256)
         |> Array.sum
         |> should equal 26984457539L
+
+module Day07 =
+    
+    open App.Solutions.Day07
+    
+    [<Fact>]
+    let ``day 07, puzzle 1`` () =
+        let crabs =
+            [ 16; 1; 2; 0; 4; 2; 7; 1; 2; 14 ]
+        
+        crabs
+        |> searchBestPos (Puzzle_1.moveCrabsToPos crabs)
+        |> snd
+        |> should equal 37
+    
+    [<Fact>]
+    let ``day 07, puzzle 2`` () =
+        let crabs =
+            [ 16; 1; 2; 0; 4; 2; 7; 1; 2; 14 ]
+        
+        crabs
+        |> searchBestPos (Puzzle_2.moveCrabsToPos crabs)
+        |> snd
+        |> should equal 168
