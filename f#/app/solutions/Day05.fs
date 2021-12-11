@@ -33,6 +33,7 @@ let isDiagonalVentLine ventLine =
     let signX, signY = (sign (eX - sX)), (sign (eY - sY))
     signX <> 0 && signY <> 0
 
+// wrappers
 let solve_puzzle_1 () =
     File.readAllLines @"./inputs/day05.txt"
     |> List.ofArray

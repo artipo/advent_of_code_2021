@@ -33,6 +33,7 @@ module Puzzle_2 =
             |> abs
             |> sumFactorial)
 
+// wrappers
 let solve_puzzle_1 () =
     let crabs =
         File.readAllLines @"./inputs/day07.txt"

@@ -36,6 +36,7 @@ and simulateFish remainingDays fish =
     else
         1L
 
+// wrappers
 let solve_puzzle_1 () =
     File.readAllLines @"./inputs/day06.txt"
     |> Array.collect (fun l -> l.Split(",", StringSplitOptions.TrimEntries ||| StringSplitOptions.RemoveEmptyEntries))

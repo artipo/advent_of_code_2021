@@ -45,6 +45,12 @@ module Seq =
         |> toTriplets
         |> Seq.map (fun (a, b, c) -> mapper a b c)
 
+module Set =
+    let exactlyOne xss =
+        xss
+        |> Set.toSeq
+        |> Seq.exactlyOne
+
 module String =
     let join (sep : string) (seq : string list) =
         String.Join(sep, seq)
