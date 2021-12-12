@@ -388,3 +388,48 @@ module Day08 =
         |> List.map solve
         |> List.sum
         |> should equal 61229
+
+module Day09 =
+    
+    open App.Solutions.Day09
+    
+    [<Fact>]
+    let ``day 09, puzzle 1`` () =
+        let heightMap =
+            [
+                "2199943210"
+                "3987894921"
+                "9856789892"
+                "8767896789"
+                "9899965678"
+            ]
+        
+        heightMap
+        |> parse
+        |> getLowPoints
+        |> Seq.map toRiskLevel
+        |> Seq.sum
+        |> should equal 15
+    
+    [<Fact>]
+    let ``day 09, puzzle 2`` () =
+        let heightMap =
+            [
+                "2199943210"
+                "3987894921"
+                "9856789892"
+                "8767896789"
+                "9899965678"
+            ]
+        
+        let map =
+            heightMap
+            |> parse
+        
+        getLowPoints map
+        |> Seq.map (getBasin map)
+        |> Seq.map Seq.length
+        |> Seq.sortDescending
+        |> Seq.take 3
+        |> Seq.reduce (fun s1 s2 -> s1 * s2)
+        |> should equal 1134
