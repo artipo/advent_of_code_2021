@@ -492,3 +492,56 @@ module Day10 =
         |> List.map calculateIncompletePoints
         |> selectIncompleteWinner
         |> should equal 288957
+
+module Day11 =
+    
+    open App.Solutions.Day11
+    
+    [<Fact>]
+    let ``day 11, puzzle 1`` () =
+        let input =
+            [
+                "5483143223"
+                "2745854711"
+                "5264556173"
+                "6141336146"
+                "6357385478"
+                "4167524645"
+                "2176841721"
+                "6882881134"
+                "4846848554"
+                "5283751526"
+            ]
+        
+        input
+        |> parse
+        |> simulate 100
+        |> fst
+        |> should equal 1656
+    
+    [<Fact>]
+    let ``day 11, puzzle 2`` () =
+        let steps = 200
+        
+        let input =
+            [
+                "5483143223"
+                "2745854711"
+                "5264556173"
+                "6141336146"
+                "6357385478"
+                "4167524645"
+                "2176841721"
+                "6882881134"
+                "4846848554"
+                "5283751526"
+            ]
+        
+        input
+        |> parse
+        |> simulate steps
+        |> snd
+        |> List.map (fun n -> steps - n)
+        |> List.sort
+        |> List.head
+        |> should equal (Some 195)
