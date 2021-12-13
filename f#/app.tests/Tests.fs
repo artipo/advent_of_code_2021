@@ -433,3 +433,62 @@ module Day09 =
         |> Seq.take 3
         |> Seq.reduce (fun s1 s2 -> s1 * s2)
         |> should equal 1134
+
+module Day10 =
+    
+    open App.Solutions.Day10
+    
+    [<Fact>]
+    let ``day 10, puzzle 1`` () =
+        let input =
+            [
+                "[({(<(())[]>[[{[]{<()<>>"
+                "[(()[<>])]({[<{<<[]>>("
+                "{([(<{}[<>[]}>{[]{[(<()>"
+                "(((({<>}<{<{<>}{[]{[]{}"
+                "[[<[([]))<([[{}[[()]]]"
+                "[{[{({}]{}}([{[{{{}}([]"
+                "{<[[]]>}<{[{[{[]{()[[[]"
+                "[<(<(<(<{}))><([]([]()"
+                "<{([([[(<>()){}]>(<<{{"
+                "<{([{{}}[<[[[<>{}]]]>[]"
+            ]
+        
+        input
+        |> List.map validate
+        |> List.choose (fun r ->
+            match r with
+            | Incomplete _ | Valid -> None
+            | Invalid c -> Some c)
+        |> List.countBy id
+        |> List.map (fun (c, count) ->
+            getInvalidPoints c
+            |> (*) count)
+        |> List.sum
+        |> should equal 26397
+
+    [<Fact>]
+    let ``day 10, puzzle 2`` () =
+        let input =
+            [
+                "[({(<(())[]>[[{[]{<()<>>"
+                "[(()[<>])]({[<{<<[]>>("
+                "{([(<{}[<>[]}>{[]{[(<()>"
+                "(((({<>}<{<{<>}{[]{[]{}"
+                "[[<[([]))<([[{}[[()]]]"
+                "[{[{({}]{}}([{[{{{}}([]"
+                "{<[[]]>}<{[{[{[]{()[[[]"
+                "[<(<(<(<{}))><([]([]()"
+                "<{([([[(<>()){}]>(<<{{"
+                "<{([{{}}[<[[[<>{}]]]>[]]"
+            ]
+        
+        input
+        |> List.map validate
+        |> List.choose (fun r ->
+            match r with
+            | Invalid _ | Valid -> None
+            | Incomplete cs -> Some cs)
+        |> List.map calculateIncompletePoints
+        |> selectIncompleteWinner
+        |> should equal 288957
