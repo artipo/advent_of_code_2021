@@ -545,3 +545,153 @@ module Day11 =
         |> List.sort
         |> List.head
         |> should equal (Some 195)
+
+module Day12 =
+    
+    open App.Solutions.Day12
+    
+    [<Fact>]
+    let ``day 12, puzzle 1 _ 1`` () =
+        let input =
+            [
+                "start-A"
+                "start-b"
+                "A-c"
+                "A-b"
+                "b-d"
+                "A-end"
+                "b-end"
+            ]
+        
+        input
+        |> parse
+        |> listPaths false
+        |> List.length
+        |> should equal 10
+    
+    [<Fact>]
+    let ``day 12, puzzle 1 _ 2`` () =
+        let input =
+            [
+                "dc-end"
+                "HN-start"
+                "start-kj"
+                "dc-start"
+                "dc-HN"
+                "LN-dc"
+                "HN-end"
+                "kj-sa"
+                "kj-HN"
+                "kj-dc"
+                "kj-dc"
+            ]
+        
+        input
+        |> parse
+        |> listPaths false
+        |> List.length
+        |> should equal 19
+    
+    [<Fact>]
+    let ``day 12, puzzle 1 _ 3`` () =
+        let input =
+            [
+                "fs-end"
+                "he-DX"
+                "fs-he"
+                "start-DX"
+                "pj-DX"
+                "end-zg"
+                "zg-sl"
+                "zg-pj"
+                "pj-he"
+                "RW-he"
+                "fs-DX"
+                "pj-RW"
+                "zg-RW"
+                "start-pj"
+                "he-WI"
+                "zg-he"
+                "pj-fs"
+                "start-RW"
+            ]
+        
+        input
+        |> parse
+        |> listPaths false
+        |> List.length
+        |> should equal 226
+    
+    [<Fact>]
+    let ``day 12, puzzle 2 _ 1`` () =
+        let input =
+            [
+                "start-A"
+                "start-b"
+                "A-c"
+                "A-b"
+                "b-d"
+                "A-end"
+                "b-end"
+            ]
+        
+        input
+        |> parse
+        |> listPaths true
+        |> List.map (fun path -> path |> List.rev |> List.map (fun n -> n.Name) |> String.concat ",")
+        |> List.sort
+        |> List.length
+        |> should equal 36
+    
+    [<Fact>]
+    let ``day 12, puzzle 2 _ 2`` () =
+        let input =
+            [
+                "dc-end"
+                "HN-start"
+                "start-kj"
+                "dc-start"
+                "dc-HN"
+                "LN-dc"
+                "HN-end"
+                "kj-sa"
+                "kj-HN"
+                "kj-dc"
+                "kj-dc"
+            ]
+        
+        input
+        |> parse
+        |> listPaths true
+        |> List.length
+        |> should equal 103
+    
+    [<Fact>]
+    let ``day 12, puzzle 2 _ 3`` () =
+        let input =
+            [
+                "fs-end"
+                "he-DX"
+                "fs-he"
+                "start-DX"
+                "pj-DX"
+                "end-zg"
+                "zg-sl"
+                "zg-pj"
+                "pj-he"
+                "RW-he"
+                "fs-DX"
+                "pj-RW"
+                "zg-RW"
+                "start-pj"
+                "he-WI"
+                "zg-he"
+                "pj-fs"
+                "start-RW"
+            ]
+        
+        input
+        |> parse
+        |> listPaths true
+        |> List.length
+        |> should equal 3509
