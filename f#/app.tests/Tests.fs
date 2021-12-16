@@ -695,3 +695,65 @@ module Day12 =
         |> listPaths true
         |> List.length
         |> should equal 3509
+
+module Day14 =
+    
+    open App.Solutions.Day14
+    
+    [<Fact>]
+    let ``day 14, puzzle 1`` () =
+        let input =
+            [
+                "NNCB"
+                "CH -> B"
+                "HH -> N"
+                "CB -> H"
+                "NH -> C"
+                "HB -> C"
+                "HC -> B"
+                "HN -> C"
+                "NN -> C"
+                "BH -> H"
+                "NC -> B"
+                "NB -> B"
+                "BN -> B"
+                "BB -> N"
+                "BC -> B"
+                "CC -> N"
+                "CN -> C"
+            ]
+        
+        input
+        |> parse
+        ||> simulate 10
+        ||> toResult
+        |> should equal 1588L
+    
+    [<Fact>]
+    let ``day 14, puzzle 2`` () =
+        let input =
+            [
+                "NNCB"
+                "CH -> B"
+                "HH -> N"
+                "CB -> H"
+                "NH -> C"
+                "HB -> C"
+                "HC -> B"
+                "HN -> C"
+                "NN -> C"
+                "BH -> H"
+                "NC -> B"
+                "NB -> B"
+                "BN -> B"
+                "BB -> N"
+                "BC -> B"
+                "CC -> N"
+                "CN -> C"
+            ]
+        
+        input
+        |> parse
+        ||> simulate 40
+        ||> toResult
+        |> should equal 2188189693529L
