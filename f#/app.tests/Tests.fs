@@ -757,3 +757,52 @@ module Day14 =
         ||> simulate 40
         ||> toResult
         |> should equal 2188189693529L
+
+module Day15 =
+    
+    open App.Solutions.Day15
+    
+    [<Fact>]
+    let ``day 15, puzzle 1`` () =
+        let input =
+            [
+                "1163751742"
+                "1381373672"
+                "2136511328"
+                "3694931569"
+                "7463417111"
+                "1319128137"
+                "1359912421"
+                "3125421639"
+                "1293138521"
+                "2311944581"
+            ]
+        
+        input
+        |> parse
+        |> searchShortestPath
+        |> snd
+        |> should equal 40
+    
+    [<Fact>]
+    let ``day 15, puzzle 2`` () =
+        let input =
+            [
+                "1163751742"
+                "1381373672"
+                "2136511328"
+                "3694931569"
+                "7463417111"
+                "1319128137"
+                "1359912421"
+                "3125421639"
+                "1293138521"
+                "2311944581"
+            ]
+        
+        input
+        |> parse
+        |> expand 5
+        |> searchShortestPath
+        |> snd
+        |> should equal 315
